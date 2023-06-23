@@ -1,6 +1,11 @@
 #include "sort.h"
 #include <stdlib.h>
 
+/**
+ * counting_sort - This function implements the counting sorting algorithm
+ * @array: This is an list of integers
+ * @size : This is the size of the array
+ */
 void counting_sort(int *array, size_t size)
 {
 	int *sorted, *count, i, max_val;
@@ -24,23 +29,24 @@ void counting_sort(int *array, size_t size)
 		count[i] = 0;
 	}
 
-	for (j = 0; j < size; j++)
+	for (j = 0; j < size; ++j)
 	{
-		count[array[j]]++;
+		++count[array[j]];
 	}
 
-	for (i = 1; i <= max_val; i++)
+	for (i = 1; i <= max_val; ++i)
 	{
 		count[i] += count[i - 1];
 	}
 	print_array(count, max_val + 1);
 
-	for (i = size - 1; i >= 0; i--)
+	for (i = size - 1; i >= 0; --i)
 	{
-		sorted[--count[array[i]]] = array[i];
+		sorted[count[array[i]]- 1] = array[i];
+		--count[array[i]];
 	}
 
-	for (j = 0; j < size; j++)
+	for (j = 0; j < size; ++j)
 	{
 		array[j] = sorted[j];
 	}
