@@ -1,8 +1,8 @@
 #include "sort.h"
 /**
- * insertion_sort_list - function that sorts a doubly linked list
+ * insertion_sort_list - Function that sorts a doubly linked list
  * of integers in ascending order using the Insertion sort algorithm
- * @list: Dobule linked list to sort
+ * @list: Dobule linked list sorting
  */
 void insertion_sort_list(listint_t **list)
 {
@@ -22,10 +22,10 @@ void insertion_sort_list(listint_t **list)
 	}
 }
 /**
- *swap_node - swap a node for his previous one
- *@node: node
- *@list: node list
- *Return: return a pointer to a node which was enter it
+ *swap_node - Swap a node for the previous one
+ *@node: Node
+ *@list: Node list
+ *Return: Return a pointer to a node which  enter it
  */
 listint_t *swap_node(listint_t *node, listint_t **list)
 {
@@ -43,3 +43,4 @@ listint_t *swap_node(listint_t *node, listint_t **list)
 	else
 		*list = current;
 	return (current);
+}
