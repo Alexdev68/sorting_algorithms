@@ -1,5 +1,11 @@
 #include "sort.h"
 
+/**
+ * shell_sort - This function implements the shell sort algorthim knuth's
+ * sequence
+ * @array: This is a list of integers
+ * @size: This is the size of the array
+ */
 void shell_sort(int *array, size_t size)
 {
 	size_t n, i, j;
@@ -9,7 +15,7 @@ void shell_sort(int *array, size_t size)
 
 	while (n < size)
 	{
-		n + 1 = n * 3 + 1;
+		n = n * 3 + 1;
 	}
 
 	while (n > 0)
@@ -29,6 +35,9 @@ void shell_sort(int *array, size_t size)
 			}
 			array[j] = mi;
 		}
-		n - 1 = n / 3;
+		n = n / 3;
+
+		if (n <= 1)
+			print_array(array, size);
 	}
 }
