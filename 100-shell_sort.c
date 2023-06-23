@@ -9,21 +9,24 @@
 void shell_sort(int *array, size_t size)
 {
 	size_t n = 1, i, j;
-	int mi;
+	long int mi;
 
 	if (array == NULL || size < 2)
 	{
 		return;
 	}
 
-	for (n = n * 3 + 1; n > 0; n /= 3)
+	for (n = n * 3 + 1; n < size; n = n * 3 + 1)
+		;
+
+	for (n = n / 3; n > 0; n = n / 3)
 	{
 		for (i = n; i < size; i++)
 		{
 			mi = array[i];
 
 			j = i;
-			while (array[j - n] > mi && j >= n)
+			while (j >= n && array[j - n] > mi)
 			{
 				array[j] = array[j - n];
 
