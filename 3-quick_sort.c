@@ -1,34 +1,34 @@
 #include "sort.h"
 /**
-*swap - The positions of two elements into an array
-*@array: Array
-*@item1: Array element
-*@item2: Array element
+*swap - the positions of two elements into an array
+*@array: array
+*@item1: array element
+*@item2: array element
 */
 void swap(int *array, ssize_t item1, ssize_t item2)
 {
-	int temp;
+	int tmp;
 
-	temp = array[item1];
+	tmp = array[item1];
 	array[item1] = array[item2];
-	array[item2] = temp;
+	array[item2] = tmp;
 }
 /**
  *lomuto_partition - lomuto partition sorting scheme implementation
- *@array: Array
- *@first: First array element
- *@last: Last array element
- *@size: Size array
- *Return: Return the position of the last element sorted
+ *@array: array
+ *@first: first array element
+ *@last: last array element
+ *@size: size array
+ *Return: return the position of the last element sorted
  */
 int lomuto_partition(int *array, ssize_t first, ssize_t last, size_t size)
 {
-	int pvot = array[last];
+	int pivot = array[last];
 	ssize_t current = first, finder;
 
 	for (finder = first; finder < last; finder++)
 	{
-		if (array[finder] < pvot)
+		if (array[finder] < pivot)
 		{
 			if (array[current] != array[finder])
 			{
@@ -46,33 +46,32 @@ int lomuto_partition(int *array, ssize_t first, ssize_t last, size_t size)
 	return (current);
 }
 /**
- *qs - Qucksort algorithm implementation
- *@array: Array
- *@first: First array element
- *@last: Last array element
- *@size: Array size
+ *qs - qucksort algorithm implementation
+ *@array: array
+ *@first: first array element
+ *@last: last array element
+ *@size: array size
  */
 void qs(int *array, ssize_t first, ssize_t last, int size)
 {
-	ssize_t psition = 0;
+	ssize_t position = 0;
 
 
 	if (first < last)
 	{
-		psition = lomuto_partition(array, first, last, size);
+		position = lomuto_partition(array, first, last, size);
 
-		qs(array, first, psition - 1, size);
-		qs(array, psition + 1, last, size);
+		qs(array, first, position - 1, size);
+		qs(array, position + 1, last, size);
 	}
 }
 /**
- *quick_sort - Prepare the terrain to quicksort algorithm
- *@array: Array
- *@size: Array size
+ *quick_sort - prepare the terrain to quicksort algorithm
+ *@array: array
+ *@size: array size
  */
 void quick_sort(int *array, size_t size)
 {
 	if (!array || size < 2)
 		return;
 	qs(array, 0, size - 1, size);
-}
