@@ -5,7 +5,7 @@
 *@item1: Array element
 *@item2: Array element
 */
-void swap(int *array, size_t item1, size_t item2)
+void swap(int *array, ssize_t item1, ssize_t item2)
 {
 	int temp;
 
@@ -21,10 +21,10 @@ void swap(int *array, size_t item1, size_t item2)
  *@size: Size array
  *Return: Return the position of the last element sorted
  */
-int lomuto_partition(int *array, size_t first, size_t last, size_t size)
+int lomuto_partition(int *array, ssize_t first, ssize_t last, size_t size)
 {
 	int pvot = array[last];
-	size_t current = first, finder;
+	ssize_t current = first, finder;
 
 	for (finder = first; finder < last; finder++)
 	{
@@ -46,15 +46,15 @@ int lomuto_partition(int *array, size_t first, size_t last, size_t size)
 	return (current);
 }
 /**
- *qs - quicksort algorithm implementation
- *@array: Array
- *@first: First array element
- *@last: Last array element
- *@size: Array size
+ *qs - qucksort algorithm implementation
+ *@array: array
+ *@first: first array element
+ *@last: last array element
+ *@size: array size
  */
-void qs(int *array, size_t first, size_t last, int size)
+void qs(int *array, ssize_t first, ssize_t last, int size)
 {
-	size_t psition = 0;
+	ssize_t psition = 0;
 
 
 	if (first < last)
@@ -66,13 +66,12 @@ void qs(int *array, size_t first, size_t last, int size)
 	}
 }
 /**
- *quick_sort - Prepare terrain to quicksort algorithm
- *@array: Array
- *@size: Array size
+ *quick_sort - prepare the terrain to quicksort algorithm
+ *@array: array
+ *@size: array size
  */
 void quick_sort(int *array, size_t size)
 {
 	if (!array || size < 2)
 		return;
 	qs(array, 0, size - 1, size);
-}
