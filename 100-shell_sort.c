@@ -36,8 +36,6 @@ void shell_sort(int *array, size_t size)
 			array[j] = mi;
 		}
 		n = n / 3;
-
-		if (n <= 1)
-			print_array(array, size);
+		print_array(array, size);
 	}
 }
