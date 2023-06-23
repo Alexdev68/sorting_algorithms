@@ -8,34 +8,30 @@
  */
 void shell_sort(int *array, size_t size)
 {
-	size_t n, i, j;
+	size_t n = 1, i, j;
 	int mi;
 
-	n = 1;
-
-	while (n < size)
+	if (array == NULL || size < 2)
 	{
-		n = n * 3 + 1;
+		return;
 	}
 
-	while (n > 0)
+	for (n = n * 3 + 1; n > 0; n /= 3)
 	{
 		for (i = n; i < size; i++)
 		{
 			mi = array[i];
 
 			j = i;
-
 			while (array[j - n] > mi && j >= n)
 			{
 				array[j] = array[j - n];
 
-				j = j - n;
+				j -= n;
 
 			}
 			array[j] = mi;
 		}
-		n = n / 3;
 		print_array(array, size);
 	}
 }
