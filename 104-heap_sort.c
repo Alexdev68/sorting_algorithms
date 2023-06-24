@@ -21,10 +21,13 @@ void heap_sort(int *array, size_t size)
 
 	for (i = size - 1; i >= 0; i--)
 	{
-		temp = array[i];
-		array[i] = array[0];
-		array[0] = temp;
-		print_array(array, size);
+		if (i != 0)
+		{
+			temp = array[i];
+			array[i] = array[0];
+			array[0] = temp;
+			print_array(array, size);
+		}
 
 		Max_heapify(array, i, 0, size);
 	}
