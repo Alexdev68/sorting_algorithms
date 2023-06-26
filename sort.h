@@ -28,6 +28,12 @@ void shell_sort(int *array, size_t size);
 void cocktail_sort_list(listint_t **list);
 void counting_sort(int *array, size_t size);
 void merge_sort(int *array, size_t size);
+
+void PrintArray(int *array, int start,  int end);
+void CopyArray(int *array, int end, int start, int *work_copy);
+void AscendMerge(int *array, int iBeg, int iMid, int iEnd, int *work_copy);
+void AscendSplitMerge(int *work_copy, int start, int end, int *array);
+
 void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
 void bitonic_sort(int *array, size_t size);
