@@ -10,14 +10,15 @@
  */
 void PrintArray(int *array, int start, int end)
 {
+
 	int i;
 
-	for (i = end; i < end; i++)
-		if (i < end - 1)
-			printf("%i, ", array[i]);
-		else
-			printf("%i\n", array[i]);
+	for (i = start; i <= end; i++)
+	printf("%d ", array[i]);
+
+	printf("\n");
 }
+
 
 /**
  * CopyArray - Simple 1 for 1 copy of source[] to sotint[]
