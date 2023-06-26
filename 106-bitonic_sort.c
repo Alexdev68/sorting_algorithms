@@ -12,7 +12,7 @@ void bitonic_sort(int *array, size_t size)
 	{
 		return;
 	}
-	bitosort(array, 0, size, 1);
+	bitosort(array, 0, size, 1, size);
 }
 
 /**
@@ -21,8 +21,9 @@ void bitonic_sort(int *array, size_t size)
  * @sml: This is the initial index
  * @bitsiz: This is the size of the array
  * @dest: This is the destination whether increasing or decreasing. 1 or 0
+ * @org_size: This is the original size of the array
  */
-void bitosort(int *arr, int sml, int bitsiz, int dest)
+void bitosort(int *arr, int sml, int bitsiz, int dest, int org_size)
 {
 	int cd;
 
@@ -30,13 +31,13 @@ void bitosort(int *arr, int sml, int bitsiz, int dest)
 	{
 		cd = bitsiz / 2;
 
-		printf("Merging [%d/16] (%s):\n", bitsiz
+		printf("Merging [%d/%d] (%s):\n", bitsiz, org_size
 				, (dest == 1) ? "UP" : "DOWN");
 		print_array(&arr[sml], bitsiz);
-		bitosort(arr, sml, cd, 1);
-		bitosort(arr, sml + cd, cd, 0);
+		bitosort(arr, sml, cd, 1, org_size);
+		bitosort(arr, sml + cd, cd, 0, org_size);
 		merge(arr, sml, bitsiz, dest);
-		printf("Result [%d/16] (%s):\n", bitsiz
+		printf("Result [%d/%d] (%s):\n", bitsiz, org_size
 				, (dest == 1) ? "UP" : "DOWN");
 		print_array(&arr[sml], bitsiz);
 	}
