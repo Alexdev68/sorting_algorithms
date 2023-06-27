@@ -13,8 +13,14 @@ void PrintArray(int *array, int start, int end)
 
 	int i;
 
-	for (i = start; i <= end; i++)
-	printf("%d ", array[i]);
+	for (i = start; array && i < end; i++)
+	{
+		if (i > start)
+		{
+			printf(", ");
+		}
+		printf("%d", array[i]);
+	}
 
 	printf("\n");
 }
@@ -36,7 +42,7 @@ void CopyArray(int *source, int start, int end, int *sotint)
 }
 
 /**
- * Ascendmerge - Sorts subsections of source[] by ascending value
+ * AscendMerge - Sorts subsections of source[] by ascending value
  * @source: Array of values to be sorted
  * @start: Left run starting index value
  * @mid: Right run starting index value
@@ -55,7 +61,7 @@ void AscendMerge(int *source, int start, int mid, int end, int *sotint)
 	printf("[right]: ");
 	PrintArray(source, mid, end);
 	/* While there are elements in the left or right  */
-	for (z = start; z < end; z++)
+	for (z = start; z <= end; z++)
 	{
 		/* If left run head exists and is <= existing right run head */
 		if (x < mid && (y >= end || source[x] <= source[y]))
@@ -69,6 +75,11 @@ void AscendMerge(int *source, int start, int mid, int end, int *sotint)
 			y++;
 		}
 	}
+
+	for (z = start; z <= end; z++)
+	{
+		source[z] = sotint[z];
+	}
 	printf("[Done]: ");
 	PrintArray(sotint, start, end);
 }
@@ -78,7 +89,6 @@ void AscendMerge(int *source, int start, int mid, int end, int *sotint)
  * array into left and right runs, then merges with AscendMerge
  * @source: Array of integers to be sorted
  * @start: Starting index value
- * @mid: Mid index value
  * @end: Ending index value
  * @sotint: Array to store sorted integers
  */
@@ -114,7 +124,7 @@ void merge_sort(int *array, size_t size)
 	if (!work_copy)
 		return;
 
-	CopyArray(array, 0, size, work_copy);
+	CopyArray(array, 0, size - 1, work_copy);
 	AscendSplitMerge(work_copy, 0, size, array);
 
 	free(work_copy);
