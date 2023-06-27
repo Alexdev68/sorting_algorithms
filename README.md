@@ -33,3 +33,6 @@ Write a function that sorts an array of integers in ascending order using the Co
 
 7. Merge sort
 Write a function that sorts an array of integers in ascending order using the Merge sort algorithm
+
+8. Heap sort
+Write a function that sorts an array of integers in ascending order using the Heap sort algorithm
