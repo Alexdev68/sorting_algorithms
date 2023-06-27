@@ -30,3 +30,6 @@ Write a function that sorts a doubly linked list of integers in ascending order 
 
 6. Counting sort
 Write a function that sorts an array of integers in ascending order using the Counting sort algorithm
+
+7. Merge sort
+Write a function that sorts an array of integers in ascending order using the Merge sort algorithm
