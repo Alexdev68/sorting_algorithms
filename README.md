@@ -18,3 +18,6 @@ Write a function that sorts a doubly linked list of integers in ascending order 
 
 2. Selection sort
 Write a function that sorts an array of integers in ascending order using the Selection sort algorithm
+
+3. Quick sort
+Write a function that sorts an array of integers in ascending order using the Quick sort algorithm
