@@ -36,3 +36,15 @@ Write a function that sorts an array of integers in ascending order using the Me
 
 8. Heap sort
 Write a function that sorts an array of integers in ascending order using the Heap sort algorithm
+
+9. Radix sort
+Write a function that sorts an array of integers in ascending order using the Radix sort algorithm
+
+10. Bitonic sort
+Write a function that sorts an array of integers in ascending order using the Bitonic sort algorithm
+
+11. Quick Sort - Hoare Partition scheme
+Write a function that sorts an array of integers in ascending order using the Quick sort algorithm
+
+12. Dealer
+Write a function that sorts a deck of cards.
